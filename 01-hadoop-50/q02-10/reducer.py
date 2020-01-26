@@ -1,22 +1,16 @@
 import sys
-#
-#  >>> Escriba el codigo del reducer a partir de este punto <<<
-#
-
 if __name__ == '__main__':
-
-    purpose_1={}
-    #total = 0
+    pp1={}
     for line in sys.stdin:
         line = line.strip()
-        purpose = line.split('\t')[0]
-        amount = line.split('\t')[1]
-        amount=int(amount)
-        if purpose in purpose_1.keys():
-          purpose_1[purpose].append(amount)
+        pp = line.split('\t')[0]
+        a = line.split('\t')[1]
+        a=int(a)
+        if pp in pp1.keys():
+          pp1[pp].append(a)
         else:
-          purpose_1[purpose]=[]
-          purpose_1[purpose].append(amount)
-    for purpose in purpose_1.keys():
-        sump=max(purpose_1[purpose])
-        sys.stdout.write("{}\t{}\t\n".format(purpose, sump))
+          pp1[pp]=[]
+          pp1[pp].append(a)
+    for pp in pp1.keys():
+        sump=max(pp1[pp])
+        sys.stdout.write("{}\t{}\t\n".format(pp, sump))
