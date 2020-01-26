@@ -7,6 +7,6 @@ if __name__ == "__main__":
         line = line.strip()
         line = line.split(',')
         if len(line) >=2:
-            purpose = line[0]
-            amount = line[1]
-            sys.stdout.write("{}\t{}\t\n".format(purpose, amount))
+            pp = line[0]
+            a = line[1]
+            sys.stdout.write("{}\t{}\t\n".format(pp, a))
