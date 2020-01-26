@@ -1,11 +1,6 @@
 import sys
-#
-# >>> Escriba el codigo del reducer a partir de este punto <<<
-#
 curkey = None
 total = 0
-
-
 for line in sys.stdin:
     key, val = line.split("\t")
     val = int(val)
@@ -16,5 +11,4 @@ for line in sys.stdin:
             sys.stdout.write("{}\t{}\n".format(curkey, total))
         curkey = key
         total = val
-
 sys.stdout.write("{}\t{}\n".format(curkey, total))
