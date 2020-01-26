@@ -1,19 +1,16 @@
 import sys
-#
-# >>> Escriba el codigo del reducer a partir de este punto <<<
-#
 if __name__ == '__main__':
-    Month = {}
+    meses = {}
     for line in sys.stdin:
         line = line.strip()
         k = line.split(',')[0]
-        count = line.split(',')[1]
-        count=int(count)
-        if k in Month.keys():
-            Month[k].append(count)
+        conta = line.split(',')[1]
+        conta=int(conta)
+        if k in meses.keys():
+            meses[k].append(conta)
         else:
-            Month[k]=[]
-            Month[k].append(count)
-    for k in Month.keys():
-        suml =sum(Month[k])
+            meses[k]=[]
+            meses[k].append(conta)
+    for k in meses.keys():
+        suml =sum(meses[k])
         sys.stdout.write("{}\t{}\n".format(k, suml))
