@@ -1,8 +1,10 @@
 import sys
-if __name__ == "__main__":
-    for line in sys.stdin:
-        letra = line.split('   ')[0]
-        fecha = line.split('   ')[1]
-        valor = line.split('   ')[2]
-        valor = int(valor)
-        sys.stdout.write("{},{},{},{}\n".format(letra + str(valor/100), letra, fecha, valor))
+if __name__=="__main__":
+    for linea in sys.stdin:
+        key=linea.split("   ")[0]
+        fec=linea.split("   ")[1]
+        val=int(linea.split("   ")[2])
+        val=str(val)
+        val=val.zfill(3)
+        llave=key+val
+        sys.stdout.write("{}\t{}\t{}\t{}\n".format(llave,key,fec,val))
