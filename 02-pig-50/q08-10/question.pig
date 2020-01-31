@@ -14,3 +14,18 @@ fs -rm -f -r output;
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+datos = LOAD 'data.tsv' USING PigStorage('\t') 
+    AS (letra:CHARARRAY, 
+        bolsa:bag{(a:CHARARRAY)},
+        mapa:map[]);
+DUMP datos;
+
+flateado = foreach datos generate FLATTEN($1),FLATTEN($2);
+
+seleccionados= foreach flateado generate $0,$1;
+
+grupo = GROUP seleccionados BY ($0,$1);
+
+conteo = FOREACH grupo GENERATE group , COUNT(seleccionados) AS conteo;
+
+ordenados = order conteo BY $0,$1;
