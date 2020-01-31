@@ -29,3 +29,5 @@ grupo = GROUP seleccionados BY ($0,$1);
 conteo = FOREACH grupo GENERATE group , COUNT(seleccionados) AS conteo;
 
 ordenados = order conteo BY $0,$1;
+
+store ordenados into 'output' using PigStorage('\t');
