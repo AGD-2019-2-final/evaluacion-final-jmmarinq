@@ -29,4 +29,8 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 -- >>> Escriba su respuesta a partir de este punto <<<
 --
+d = FOREACH u GENERATE birthday,SUBSTRING(birthday,0,4) AS anio_largo, SUBSTRING(birthday,2,4) AS anio_corto;
 
+f = FOREACH d GENERATE anio_largo,anio_corto;
+
+store f into 'output' USING PigStorage(',');
